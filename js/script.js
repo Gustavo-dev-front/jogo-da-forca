@@ -10,7 +10,6 @@ function createKeyboard(a, b) {
 
 async function getData() {
   const randomN = Math.random();
-  console.log(randomN);
   try {
     const response = await (await fetch("../data/data.json")).json();
     const randomIndex = Math.round(randomN * (response.length - 1));
@@ -26,5 +25,12 @@ async function getData() {
   }
 }
 
+// Continuar a implementar a função abaixo, que será responsável por validar a letra selecionada pelo usuário
+function handleKeyboard(e) {
+  const element = e.target;
+  if (element.tagName === "BUTTON") console.log(element.tagName);
+}
+
+KEYBOARD_BOX.addEventListener("click", handleKeyboard);
 createKeyboard(97, 122);
 getData();
