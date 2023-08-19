@@ -75,9 +75,9 @@ body {
   justify-content: center;
 }
 
-.keyboard button {
+.keyboard button,
+.game-modal .content button {
   padding: 10px;
-  width: calc(100% / 9 - 5px);
   color: #ffffff;
   font-weight: 600;
   text-transform: uppercase;
@@ -87,8 +87,66 @@ body {
   background-color: #20e88c;
 }
 
-.keyboard button:hover {
+.keyboard button {
+  width: calc(100% / 9 - 5px);
+}
+
+.keyboard button:hover,
+.game-modal .content button:hover,
+.keyboard button[disabled] {
   background-color: #9cf3ca;
+}
+
+.keyboard button[disabled] {
+  pointer-events: none;
+}
+
+.game-modal {
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  transition: opacity 0.3s ease;
+}
+
+.game-modal .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: #ffffff;
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.game-modal .content img {
+  width: 100px;
+  height: 100px;
+}
+
+.game-modal .content h2 {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.game-modal .content span {
+  color: #20e88c;
+}
+
+.game-modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.game-modal.show .button {
+  pointer-events: auto;
 }
 
 @media only screen and (max-width: 750px) {
